@@ -7,8 +7,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
-@ComponentScan("com.checkoutcomponent.model")
-@EnableJpaRepositories("com.checkoutcomponent.repository")
+@ComponentScan("com.checkoutcomponent.domain.model")
+@EnableJpaRepositories("com.checkoutcomponent.domain.repository")
 @EnableScheduling
 public class TestSpringBootApplicationClass {
 

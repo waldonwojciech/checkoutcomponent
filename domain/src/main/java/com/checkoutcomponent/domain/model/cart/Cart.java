@@ -1,8 +1,8 @@
-package com.checkoutcomponent.model.cart;
+package com.checkoutcomponent.domain.model.cart;
 
-import com.checkoutcomponent.model.cart.state.CartState;
-import com.checkoutcomponent.model.discount.Discount;
-import com.checkoutcomponent.model.product.Product;
+import com.checkoutcomponent.domain.model.cart.state.CartState;
+import com.checkoutcomponent.domain.model.discount.Discount;
+import com.checkoutcomponent.domain.model.product.Product;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,14 +20,11 @@ import java.util.List;
 public class Cart implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
     @Column(name = "CUSTOMER_ID", unique = true, nullable = false)
     private String customerId;
 
     @Enumerated(EnumType.STRING)
-    //    @Type( type = "com.checkoutcomponent.model.cart.state.CartState",
+    //    @Type( type = "com.checkoutcomponent.domain.model.cart.state.CartState",
     //            parameters = {
     //                    @Parameter( name = "enumClass", value =  "my.package.Status" ),
     //                    @Parameter( name = "identifierMethod", value = "toString" ),

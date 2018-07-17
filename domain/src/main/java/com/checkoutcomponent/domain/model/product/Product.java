@@ -1,7 +1,7 @@
-package com.checkoutcomponent.model.product;
+package com.checkoutcomponent.domain.model.product;
 
-import com.checkoutcomponent.model.cart.Cart;
-import com.checkoutcomponent.model.discount.Discount;
+import com.checkoutcomponent.domain.model.cart.Cart;
+import com.checkoutcomponent.domain.model.discount.Discount;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

@@ -1,7 +1,7 @@
-package com.checkoutcomponent.repository.discount;
+package com.checkoutcomponent.domain.repository.discount;
 
 import com.checkoutcomponent.TestSpringBootApplicationClass;
-import com.checkoutcomponent.repository.BaseRepositoryTest;
+import com.checkoutcomponent.domain.repository.BaseRepositoryTest;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestExecutionListeners;

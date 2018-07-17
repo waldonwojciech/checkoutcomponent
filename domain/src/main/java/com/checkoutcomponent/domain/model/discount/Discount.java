@@ -1,8 +1,7 @@
-package com.checkoutcomponent.model.discount;
+package com.checkoutcomponent.domain.model.discount;
 
-import com.checkoutcomponent.model.cart.Cart;
-import com.checkoutcomponent.model.product.Product;
-import lombok.Data;
+import com.checkoutcomponent.domain.model.cart.Cart;
+import com.checkoutcomponent.domain.model.product.Product;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,7 +13,6 @@ import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.prefs.Preferences;
 
 @Entity
 @Getter

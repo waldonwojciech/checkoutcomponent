@@ -1,11 +1,11 @@
-package com.checkoutcomponent.repository.product;
+package com.checkoutcomponent.domain.repository.product;
 
 import com.checkoutcomponent.TestSpringBootApplicationClass;
 import com.checkoutcomponent.factory.CartFactory;
 import com.checkoutcomponent.factory.ProductFactory;
-import com.checkoutcomponent.model.cart.Cart;
-import com.checkoutcomponent.model.product.Product;
-import com.checkoutcomponent.repository.BaseRepositoryTest;
+import com.checkoutcomponent.domain.model.cart.Cart;
+import com.checkoutcomponent.domain.model.product.Product;
+import com.checkoutcomponent.domain.repository.BaseRepositoryTest;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;

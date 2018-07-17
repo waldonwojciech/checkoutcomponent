@@ -1,6 +1,6 @@
-package com.checkoutcomponent.repository.product;
+package com.checkoutcomponent.domain.repository.product;
 
-import com.checkoutcomponent.model.product.Product;
+import com.checkoutcomponent.domain.model.product.Product;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

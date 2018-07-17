@@ -1,6 +1,6 @@
 package com.checkoutcomponent.factory;
 
-import com.checkoutcomponent.model.product.Product;
+import com.checkoutcomponent.domain.model.product.Product;
 
 public class ProductFactory {
 

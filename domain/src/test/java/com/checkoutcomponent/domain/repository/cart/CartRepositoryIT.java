@@ -1,9 +1,9 @@
-package com.checkoutcomponent.repository.cart;
+package com.checkoutcomponent.domain.repository.cart;
 
 import com.checkoutcomponent.TestSpringBootApplicationClass;
 import com.checkoutcomponent.factory.CartFactory;
-import com.checkoutcomponent.model.cart.Cart;
-import com.checkoutcomponent.repository.BaseRepositoryTest;
+import com.checkoutcomponent.domain.model.cart.Cart;
+import com.checkoutcomponent.domain.repository.BaseRepositoryTest;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -27,10 +27,9 @@ public class CartRepositoryIT extends BaseRepositoryTest {
         Cart cart = CartFactory.createOpenCart();
 
         //when
-        Cart savedCart = cartRepository.save(cart);
+        cartRepository.save(cart);
 
         //then
-        assertEquals(cart, savedCart);
         assertEquals(1, cartRepository.count());
     }
 }

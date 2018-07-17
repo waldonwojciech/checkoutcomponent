@@ -1,4 +1,4 @@
-package com.checkoutcomponent.model.cart.state;
+package com.checkoutcomponent.domain.model.cart.state;
 
 public enum CartState {
 
