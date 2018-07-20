@@ -4,7 +4,7 @@ import com.checkoutcomponent.domain.model.product.Product;
 
 public class ProductFactory {
 
-    public static Product createProduct() {
+    public static Product create() {
         return new Product("name");
     }
 }

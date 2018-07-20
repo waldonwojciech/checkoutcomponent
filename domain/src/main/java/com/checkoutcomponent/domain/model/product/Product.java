@@ -19,7 +19,7 @@ public class Product implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID", unique = true, nullable = false)
+    @Column(name = "ID", unique = true, nullable = false, insertable = false, updatable = false)
     private Long id;
 
     @NotNull
@@ -28,12 +28,14 @@ public class Product implements Serializable {
     @ManyToMany
     private List<Cart> carts;
 
-    @ManyToMany
-    @JoinTable(
-            name = "DISCOUNT",
-            joinColumns = {@JoinColumn(name = "ID", referencedColumnName = "ID")})
-//            inverseJoinColumns={@JoinColumn(name="ID", referencedColumnName="ID")})
-    private List<Discount> discounts;
+//    @ManyToMany
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "CUSTOMER_ID", referencedColumnName = "ID")
+//    @JoinTable(
+//            name = "DISCOUNT",
+//            joinColumns = {@JoinColumn(name = "ID", referencedColumnName = "ID")})
+////            inverseJoinColumns={@JoinColumn(name="ID", referencedColumnName="ID")})
+    private Discount discount;
 
     public Product(@NotNull String name) {
         this.name = name;

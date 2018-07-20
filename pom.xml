@@ -18,8 +18,8 @@
 
     <modules>
         <module>api</module>
-        <module>domain</module>
         <module>application</module>
+        <module>domain</module>
     </modules>
 
     <properties>
