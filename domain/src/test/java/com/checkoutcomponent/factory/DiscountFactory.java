@@ -9,7 +9,7 @@ public class DiscountFactory {
 
     public static Discount create(Product product) {
         Discount discount = new Discount();
-        discount.getProducts().put(2, product);
+        discount.getProducts().put(product, 2L);
         discount.setDiscountAmount(BigDecimal.TEN);
 
         return discount;

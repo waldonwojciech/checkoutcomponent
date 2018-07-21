@@ -23,7 +23,7 @@ public class DiscountFactoryIT extends BaseRepositoryTest {
 
     @Before
     public void setUp() {
-        Product product = ProductFactory.create();
+        product = ProductFactory.create();
 
         productRepository.save(product);
     }
@@ -42,7 +42,7 @@ public class DiscountFactoryIT extends BaseRepositoryTest {
         discountRepository.save(discount);
 
         //then
-        Assert.assertEquals(1, discountRepository.count());
+        assertEquals(1, discountRepository.count());
     }
 
     @Test
@@ -55,6 +55,6 @@ public class DiscountFactoryIT extends BaseRepositoryTest {
         discountRepository.delete(discount);
 
         //then
-        Assert.assertEquals(0, discountRepository.count());
+        assertEquals(0, discountRepository.count());
     }
 }
