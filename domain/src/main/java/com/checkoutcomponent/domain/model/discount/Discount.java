@@ -25,7 +25,7 @@ public class Discount implements Serializable {
     @Column(name = "ID", unique = true, nullable = false, insertable = false, updatable = false)
     private String id;
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     @MapKeyJoinColumn(name="ID")
     private Map<Product, Long> products = new HashMap<>();
 

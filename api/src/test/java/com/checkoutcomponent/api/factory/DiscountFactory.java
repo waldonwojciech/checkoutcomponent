@@ -25,7 +25,7 @@ public class DiscountFactory {
     private static Discount getFirstDiscount() {
         Discount discount = new Discount();
         Map discountProducts = new HashMap<>();
-        discountProducts.put(ProductFactory.getFirstProduct(), 1);
+        discountProducts.put(ProductFactory.getFirstProduct(), 1L);
 
         discount.setProducts(discountProducts);
         discount.setDiscountAmount(FIRST_PRODUCT_DISCOUNT_AMOUNT);
@@ -36,7 +36,7 @@ public class DiscountFactory {
     private static Discount getSecondDiscount() {
         Discount discount = new Discount();
         Map discountProducts = new HashMap<>();
-        discountProducts.put(ProductFactory.getSecondProduct(), 1);
+        discountProducts.put(ProductFactory.getSecondProduct(), 1L);
 
         discount.setProducts(discountProducts);
         discount.setDiscountAmount(SECOND_PRODUCT_DISCOUNT_AMOUNT);
