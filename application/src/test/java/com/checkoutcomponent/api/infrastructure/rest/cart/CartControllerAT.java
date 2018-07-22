@@ -17,6 +17,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import java.math.BigDecimal;
+
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -99,7 +101,7 @@ public class CartControllerAT extends WebRestConfigClassTest {
     }
 
     private Product getProduct(String productName) {
-        Product product = new Product(productName);
+        Product product = new Product(productName, BigDecimal.TEN);
 
         return productRepository.save(product);
     }

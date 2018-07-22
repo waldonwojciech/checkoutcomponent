@@ -40,9 +40,12 @@ public class DiscountService {
             for (Map.Entry<Product, Long> productRequiredForDiscount : productsRequiredForDiscount.entrySet()) {
                 for (Map.Entry<Product, Long> customerProduct : customerProducts.entrySet()) {
                     String customerProductId = customerProduct.getKey().getId();
-                    String productRequiredForDiscountId = productRequiredForDiscount.getKey().getId();
+                    Long customerProductAmount = customerProduct.getValue();
 
-                    if (customerProductId.equals(productRequiredForDiscountId)) {
+                    String productRequiredForDiscountId = productRequiredForDiscount.getKey().getId();
+                    Long productAmountRequiredForDiscount = productRequiredForDiscount.getValue();
+
+                    if (customerProductId.equals(productRequiredForDiscountId) && (customerProductAmount >= productAmountRequiredForDiscount)) {
                         customerProducts.remove(productRequiredForDiscount);
                         discountAmount = discountAmount.add(discount.getDiscountAmount());
                     }

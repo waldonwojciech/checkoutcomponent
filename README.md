@@ -54,7 +54,7 @@ Through maven profile spring specify it's own - if there is no value consider de
 
 ## Versioning
 
- [Git](https://git-scm.com/) eas been used as basic versioning tool.
+ [Git](https://git-scm.com/) has been used as basic versioning tool.
 
 ## Author
 

@@ -10,6 +10,7 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,7 +36,9 @@ public class Product implements Serializable {
     @JoinColumn(name = "DISCOUNT_ID", referencedColumnName = "ID")
     private Discount discount;
 
-    public Product(@NotNull String name) {
+    private BigDecimal price;
+
+    public Product(@NotNull String name, @NotNull BigDecimal price) {
         this.name = name;
     }
 }

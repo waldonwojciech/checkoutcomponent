@@ -2,6 +2,7 @@ package com.checkoutcomponent.api.factory;
 
 import com.checkoutcomponent.domain.model.product.Product;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 
@@ -13,10 +14,10 @@ public class ProductFactory {
     private static Product secondProduct;
 
     static {
-        firstProduct = new Product(FIRST_PRODUCT);
+        firstProduct = new Product(FIRST_PRODUCT, BigDecimal.TEN);
         firstProduct.setId(FIRST_PRODUCT);
 
-        secondProduct = new Product(SECOND_PRODUCT);
+        secondProduct = new Product(SECOND_PRODUCT, BigDecimal.TEN);
         secondProduct.setId(SECOND_PRODUCT);
     }
 
