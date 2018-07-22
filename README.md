@@ -2,7 +2,7 @@
 
 Market checkout component module
 
-### Technologies stack
+## Technologies stack
 
 * Spring
 * Hibernate
@@ -10,21 +10,43 @@ Market checkout component module
 * Lombok
 * Java 8
 * JUnit
+* TestNG
 * AssertJ
 * Mockito
 
-### Prerequisites
+## Modules
+Application has been divided into three parts:
 
-Module 
+* api
+* application
+* domain
+
+### Api module ###
+Module resposible for exposing complete application rest api.
+
+### Application module ###
+Module resposible for application deployment process.
+
+### Domain module ###
+Module resposible for providing database structure.
 
 ### Installing
 
-In case of 
+>clean install -Pdev -f pom.xml
 
-## Running the tests
+Install process takes into account maven profile:
+ >-p
+ 
+ Actually there is available only dev profile.
 
 ## Deployment
+Recommended deploy command:
+>clean install -Pdev spring-boot:run -f pom.xml
 
+Working directory:
+>checkoutcomponent/checkoutcomponent/application
+
+Through maven profile spring specify it's own - if there is no value consider default.
 
 ## Built With
 
@@ -32,7 +54,7 @@ In case of
 
 ## Versioning
 
-I've used [Git](https://git-scm.com/) as basic versioning tool.
+ [Git](https://git-scm.com/) eas been used as basic versioning tool.
 
 ## Author
 
