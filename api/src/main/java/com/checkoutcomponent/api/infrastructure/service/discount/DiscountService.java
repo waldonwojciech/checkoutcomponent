@@ -45,9 +45,12 @@ public class DiscountService {
                     String productRequiredForDiscountId = productRequiredForDiscount.getKey().getId();
                     Long productAmountRequiredForDiscount = productRequiredForDiscount.getValue();
 
-                    if (customerProductId.equals(productRequiredForDiscountId) && (customerProductAmount >= productAmountRequiredForDiscount)) {
-                        customerProducts.remove(productRequiredForDiscount);
-                        discountAmount = discountAmount.add(discount.getDiscountAmount());
+                    if (customerProductId.equals(productRequiredForDiscountId)) {
+                        while (customerProductAmount >= productAmountRequiredForDiscount) {
+                            customerProducts.remove(productRequiredForDiscount);
+                            customerProductAmount = customerProductAmount - productAmountRequiredForDiscount;
+                            discountAmount = discountAmount.add(discount.getDiscountAmount());
+                        }
                     }
                 }
             }
