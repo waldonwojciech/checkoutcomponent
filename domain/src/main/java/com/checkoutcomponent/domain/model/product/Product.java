@@ -40,5 +40,6 @@ public class Product implements Serializable {
 
     public Product(@NotNull String name, @NotNull BigDecimal price) {
         this.name = name;
+        this.price = price;
     }
 }

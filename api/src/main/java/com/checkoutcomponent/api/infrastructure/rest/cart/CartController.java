@@ -36,9 +36,8 @@ public class CartController {
         try {
             cartService.openCart(customerId);
         } catch (CartAlreadyExistsException e) {
-            return ResponseEntity
-                    .status(HttpStatus.NOT_FOUND)
-                    .build();
+            log.error("Cart already exists exception, {}", e);
+            throw e;
         }
 
         return ResponseEntity
@@ -51,13 +50,11 @@ public class CartController {
         try {
             cartService.scanProduct(customerId, productId, quantity);
         } catch (CartNotFoundException e) {
-            return ResponseEntity
-                    .status(HttpStatus.NOT_FOUND)
-                    .build();
+            log.error("Cart not found exception durign scan items, {}", e);
+            throw e;
         } catch (ProductNotFoundException e) {
-            return ResponseEntity
-                    .status(HttpStatus.NOT_FOUND)
-                    .build();
+            log.error("Product not found exception durign scan items, {}", e);
+            throw e;
         }
 
         return ResponseEntity
@@ -71,10 +68,10 @@ public class CartController {
     public ResponseEntity closeCart(@RequestParam("customerId") String customerId) {
         BigDecimal discountAmount;
         try {
-            discountAmount = discountService.getDiscountsAmountForCustomerId(customerId);
+            discountAmount = discountService.getTotalPrice(customerId);
         } catch (CartNotFoundException e) {
-            return ResponseEntity
-                    .status(HttpStatus.NOT_FOUND).build();
+            log.error("Error during closing chart, {}", e);
+            throw e;
         }
         cartService.closeCart(customerId);
 

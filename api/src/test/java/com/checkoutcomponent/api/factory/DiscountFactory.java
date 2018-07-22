@@ -10,11 +10,10 @@ import java.util.Map;
 
 public class DiscountFactory {
 
-    private static final BigDecimal FIRST_PRODUCT_DISCOUNT_AMOUNT = BigDecimal.valueOf(21L);
+    private static final BigDecimal FIRST_PRODUCT_DISCOUNT_AMOUNT = BigDecimal.valueOf(22L);
     private static final BigDecimal SECOND_PRODUCT_DISCOUNT_AMOUNT = BigDecimal.valueOf(22L);
 
     public static final BigDecimal PRODUCTS_DISCOUNT_AMOUNT = FIRST_PRODUCT_DISCOUNT_AMOUNT.add(SECOND_PRODUCT_DISCOUNT_AMOUNT);
-
     public static List<Discount> createList() {
         Discount firstDiscount = getFirstDiscount();
         Discount secondDiscount = getSecondDiscount();

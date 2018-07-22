@@ -10,14 +10,20 @@ public class ProductFactory {
 
     private static final String FIRST_PRODUCT = "FIRST_PRODUCT";
     private static final String SECOND_PRODUCT = "SECOND_PRODUCT";
+
+    private static final BigDecimal FIRST_PRODUCT_DISCOUNT_AMOUNT_PRICE = BigDecimal.valueOf(30L);
+    private static final BigDecimal SECOND_PRODUCT_DISCOUNT_AMOUNT_PRICE = BigDecimal.valueOf(30L);
+
+    public static final BigDecimal PRODUCTS_TOTAL_PRICE = FIRST_PRODUCT_DISCOUNT_AMOUNT_PRICE.add(SECOND_PRODUCT_DISCOUNT_AMOUNT_PRICE);
+
     private static Product firstProduct;
     private static Product secondProduct;
 
     static {
-        firstProduct = new Product(FIRST_PRODUCT, BigDecimal.TEN);
+        firstProduct = new Product(FIRST_PRODUCT, FIRST_PRODUCT_DISCOUNT_AMOUNT_PRICE);
         firstProduct.setId(FIRST_PRODUCT);
 
-        secondProduct = new Product(SECOND_PRODUCT, BigDecimal.TEN);
+        secondProduct = new Product(SECOND_PRODUCT, SECOND_PRODUCT_DISCOUNT_AMOUNT_PRICE);
         secondProduct.setId(SECOND_PRODUCT);
     }
 

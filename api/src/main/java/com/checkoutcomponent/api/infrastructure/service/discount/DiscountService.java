@@ -26,10 +26,29 @@ public class DiscountService {
     @Autowired
     private CartRepository cartRepository;
 
-    public BigDecimal getDiscountsAmountForCustomerId(String customerId) throws CartNotFoundException {
+    public BigDecimal getTotalPrice(String customerId) throws CartNotFoundException {
+        Cart customerCart = getCartForCustomerId(customerId);
+
+        BigDecimal discountAmount = getDiscountsAmountForCustomerId(customerCart);
+        BigDecimal productsPrice = getCustomerProductsPrice(customerCart);
+
+        return productsPrice.subtract(discountAmount);
+    }
+
+    private BigDecimal getCustomerProductsPrice(Cart customerCart) {
+        BigDecimal customerProductsPrice = BigDecimal.ZERO;
+        List<Product> products = customerCart.getProducts();
+        for (Product product : products) {
+            BigDecimal productPrice = product.getPrice();
+            customerProductsPrice = customerProductsPrice.add(productPrice);
+        }
+
+        return customerProductsPrice;
+    }
+
+    private BigDecimal getDiscountsAmountForCustomerId(Cart customerCart) {
         BigDecimal discountAmount = BigDecimal.ZERO;
 
-        Cart customerCart = getCartForCustomerId(customerId);
         Map<Product, Long> customerProducts = getCustomerProducts(customerCart);
 
         List<Discount> availableDiscounts = getAvailableDiscountsSortedByAmount().collect(Collectors.toList());

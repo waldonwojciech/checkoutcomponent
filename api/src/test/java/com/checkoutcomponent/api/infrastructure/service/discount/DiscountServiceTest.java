@@ -2,6 +2,7 @@ package com.checkoutcomponent.api.infrastructure.service.discount;
 
 import com.checkoutcomponent.api.factory.CartFactory;
 import com.checkoutcomponent.api.factory.DiscountFactory;
+import com.checkoutcomponent.api.factory.ProductFactory;
 import com.checkoutcomponent.api.infrastructure.exception.CartNotFoundException;
 import com.checkoutcomponent.domain.model.cart.Cart;
 import com.checkoutcomponent.domain.model.discount.Discount;
@@ -48,9 +49,10 @@ public class DiscountServiceTest {
         when(cartRepository.findById(CUSTOMER_ID)).thenReturn(Optional.of(cart));
         when(discountRepository.findAll()).thenReturn(discounts);
 
-        BigDecimal discountAmount = discountService.getDiscountsAmountForCustomerId(CUSTOMER_ID);
+        BigDecimal discountAmount = discountService.getTotalPrice(CUSTOMER_ID);
 
         //then
-        assertEquals(DiscountFactory.PRODUCTS_DISCOUNT_AMOUNT, discountAmount);
+        BigDecimal finalProductsPrice = ProductFactory.PRODUCTS_TOTAL_PRICE.subtract(DiscountFactory.PRODUCTS_DISCOUNT_AMOUNT);
+        assertEquals(finalProductsPrice, discountAmount);
     }
 }

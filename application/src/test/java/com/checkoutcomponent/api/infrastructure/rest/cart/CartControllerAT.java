@@ -56,13 +56,35 @@ public class CartControllerAT extends WebRestConfigClassTest {
     }
 
     @Test
+    public void shouldThrowCartAlreadyExistsExceptionDuringOpeningCart() throws Exception {
+        //given
+        openCartForCustomerId(CREATED_CART_FOR_CUSTOMER_ID);
+
+        mockMvc.perform(post("/cart/open?customerId=" + CREATED_CART_FOR_CUSTOMER_ID))
+                .andExpect(status().isNotAcceptable());
+    }
+
+    @Test
+    public void shouldThrowNotFoundCartDuringScanItem() throws Exception {
+        //given
+        Product product = getProduct(PRODUCT_NAME);
+
+        //then
+        String uri = "/cart/scan?customerId=" + CREATED_CART_FOR_CUSTOMER_ID
+                + "&productId=" + product.getId()
+                + "&quantity=" + 1;
+        mockMvc.perform(post(uri))
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
     public void shouldScanItem() throws Exception {
         //given
         Product product = getProduct(PRODUCT_NAME);
-        Cart cart = getOpenCartForCustomerId(CREATED_CART_FOR_CUSTOMER_ID, product);
+        getOpenCartForCustomerId(CREATED_CART_FOR_CUSTOMER_ID, product);
 
         //when
-        Discount discount = getDiscount(product);
+        getDiscount(product);
 
         //then
         String uri = "/cart/scan?customerId=" + CREATED_CART_FOR_CUSTOMER_ID
@@ -85,6 +107,15 @@ public class CartControllerAT extends WebRestConfigClassTest {
                 .andExpect(status().isOk()).andReturn();
 
         assertEquals("0", result.getResponse().getContentAsString());
+    }
+
+    @Test
+    public void shouldThrowNotFoundCartExceptionDuringCloseCart() throws Exception {
+        mockMvc.perform(post("/cart/close?customerId=" + CREATED_CART_FOR_CUSTOMER_ID)
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isNotFound());
     }
 
     private Discount getDiscount(Product product) {
