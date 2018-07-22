@@ -27,6 +27,9 @@ Module resposible for exposing complete application rest api.
 ### Application module ###
 Module resposible for application deployment process.
 
+#### Initial storage state
+Initial storage state is provided through *data.sql* file.
+
 ### Domain module ###
 Module resposible for providing database structure.
 
