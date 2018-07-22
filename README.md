@@ -33,7 +33,7 @@ Module resposible for application deployment process.
 * **CheckoutComponentApplication** is the main application runnable class.
 
 #### Properties
-**application.properties** provide configuration for specified spring profile.
+* **application.properties** provide configuration for specified spring profile.
 
 #### Initial storage state
 Initial storage state is provided through **data.sql** file.
@@ -72,7 +72,7 @@ Through maven profile spring specify it's own - if there is no value consider de
 
 ## Versioning
 
- [Git](https://git-scm.com/) has been used as basic versioning tool.
+* [Git](https://git-scm.com/) has been used as basic versioning tool.
 
 ## Author
 
