@@ -1,4 +1,4 @@
-package com.checkoutcomponent.application.factory;
+package com.checkoutcomponent.api.factory;
 
 import com.checkoutcomponent.domain.model.discount.Discount;
 

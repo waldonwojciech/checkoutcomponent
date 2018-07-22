@@ -30,5 +30,5 @@ public class Discount implements Serializable {
     private Map<Product, Long> products = new HashMap<>();
 
     @NotNull
-    private BigDecimal discountAmount;
+    private BigDecimal discountAmount = BigDecimal.ZERO;
 }

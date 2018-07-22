@@ -1,4 +1,4 @@
-package com.checkoutcomponent.api;
+package com.checkoutcomponent.api.infrastructure.application;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.checkoutcomponent.application.infrastructure.service",
+@ComponentScan(basePackages = {"com.checkoutcomponent.api.infrastructure.service",
         "com.checkoutcomponent.api.infrastructure.rest"})
 @EntityScan(basePackages = "com.checkoutcomponent.domain.model")
 @EnableJpaRepositories(basePackages = "com.checkoutcomponent.domain.repository")

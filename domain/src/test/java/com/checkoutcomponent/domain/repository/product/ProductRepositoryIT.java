@@ -37,8 +37,13 @@ public class ProductRepositoryIT extends BaseRepositoryTest {
 
         Product product = ProductFactory.create();
         productRepository.save(product);
+
         //when
         cart.getProducts().add(product);
+        cartRepository.save(cart);
+
+        //then
+        assertEquals(1, cartRepository.findById(cart.getCustomerId()).get().getProducts().size());
 
     }
 }

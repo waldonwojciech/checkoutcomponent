@@ -25,4 +25,18 @@ public class CartRepositoryIT extends BaseRepositoryTest {
         //then
         assertEquals(1, cartRepository.count());
     }
+
+    @Test
+    public void shouldCloseOpenCart() {
+        //given
+        Cart cart = CartFactory.create();
+
+        cartRepository.save(cart);
+
+        //when
+        cartRepository.delete(cart);
+
+        //then
+        assertEquals(0, cartRepository.count());
+    }
 }

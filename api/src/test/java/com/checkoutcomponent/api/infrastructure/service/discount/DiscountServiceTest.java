@@ -1,9 +1,8 @@
-package com.checkoutcomponent.application.infrastructure.service.discount;
+package com.checkoutcomponent.api.infrastructure.service.discount;
 
-import com.checkoutcomponent.application.factory.CartFactory;
-import com.checkoutcomponent.application.factory.DiscountFactory;
-import com.checkoutcomponent.application.factory.ProductFactory;
-import com.checkoutcomponent.application.infrastructure.exception.CartNotFoundException;
+import com.checkoutcomponent.api.factory.CartFactory;
+import com.checkoutcomponent.api.factory.DiscountFactory;
+import com.checkoutcomponent.api.infrastructure.exception.CartNotFoundException;
 import com.checkoutcomponent.domain.model.cart.Cart;
 import com.checkoutcomponent.domain.model.discount.Discount;
 import com.checkoutcomponent.domain.repository.cart.CartRepository;
